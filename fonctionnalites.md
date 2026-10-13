@@ -12,14 +12,16 @@
 
 | Profil | Ce qu'il fait dans ecoleenmain | Comment il accède |
 |---|---|---|
-| **Directeur / promoteur** (rôle « Direction ») | Accès complet : tableau de bord financier, paramètres de l'école, bulletins, tableau d'honneur, certificats, conduite, corrections de notes, comptes utilisateurs. | Compte principal de l'école. |
-| **Secrétaire / comptable** | Inscriptions, fiches élèves, encaissement de la scolarité et reçus, messages aux parents, création des accès parents. | Compte utilisateur créé par la direction, limité aux menus cochés par elle (« Paramètres › Utilisateurs › Modifier les accès »). |
-| **Enseignant** | Fait l'appel, cours par cours, et saisit les notes (interrogations, Devoir 1, Devoir 2) **uniquement pour ses classes et ses matières**. Une série enregistrée est verrouillée : seule la direction peut la corriger, en donnant un motif. Il ne peut pas toucher à la conduite. | Compte créé par la direction. Il ne voit que les classes des matières qui lui sont attribuées. |
-| **Parent** | Consulte les notes, moyennes, appréciations et la conduite de son enfant, ses absences et retards, et l'état de la scolarité (dû, payé, reste). Un seul compte suffit pour plusieurs enfants (frères et sœurs). | Invitation envoyée depuis la fiche de l'élève (« Compte(s) parent › + Ajouter un parent »), par e-mail ou par lien envoyé sur WhatsApp. |
+| **Directeur / promoteur** (rôle « Direction ») | Accès complet : tableau de bord financier, paramètres de l'école, bulletins, tableau d'honneur, certificats, conduite, corrections de notes, comptes utilisateurs. | Compte principal de l'école. D'autres comptes « Direction » peuvent être créés (censeur, adjoint…), avec les menus que l'on choisit. |
+| **Secrétaire / comptable / surveillant** (rôle « Personnel ») | Selon les menus ouverts par la direction : inscriptions et fiches élèves, encaissement de la scolarité et reçus, messages aux parents, création des accès parents, appel. | Compte créé dans « Paramètres › Utilisateurs ». La direction coche un à un les menus accessibles : Gestion élèves, Enseignants, Emploi du temps, Matières, Notes & résultats, Comptabilité, Absences, Personnel, Messages, Paramètres. |
+| **Enseignant** (rôle « Enseignant ») | Voit toujours son tableau de bord, Notes & résultats et Matières, **limités à ses matières et à ses classes**. Saisit les notes (interrogations, Devoir 1, Devoir 2). Une série enregistrée est verrouillée : seule la direction peut la corriger, en donnant un motif. Il ne peut pas toucher à la conduite. La direction peut lui ouvrir d'autres menus, par exemple « Absences » pour faire l'appel. | Le compte est **relié à la fiche du professeur** (« Professeur associé ») et reçoit une invitation par e-mail. |
+| **Parent** (espace parent) | Consulte les notes, moyennes, appréciations et la conduite de son enfant, ses absences et retards, et l'état de la scolarité (dû, payé, reste). Un seul compte suffit pour plusieurs enfants (frères et sœurs). | Invitation envoyée depuis la fiche de l'élève (« Compte(s) parent › + Ajouter un parent » : e-mail et lien de parenté Père, Mère ou Tuteur), par e-mail ou par lien envoyé sur WhatsApp. |
 
 **Ce qui est unique :** l'école peut **masquer les notes au parent tant qu'une tranche de scolarité échue n'est pas soldée**. Le parent voit alors le reste à payer et un bouton « Solder la tranche ». Les notes réapparaissent dès que le paiement est enregistré. C'est un levier de recouvrement intégré, et la direction peut le désactiver.
 
-> ⚠️ Je n'ai testé que le compte Direction. Les droits Enseignant et Parent ci-dessus viennent des guides officiels intégrés à l'application et des écrans de la direction (création d'accès parent, rôles utilisateurs). Pour des captures des espaces enseignant et parent, il me faut les identifiants de démo de ces comptes.
+Captures : `ajout-utilisateur_*`, `ajout-utilisateur-enseignant_*`, `modifier-acces_*`, `ajout-compte-parent_*`
+
+> ⚠️ Je n'ai testé que le compte Direction. Les droits Enseignant et Parent ci-dessus viennent des écrans de création de comptes et des guides officiels intégrés à l'application. Pour des captures des espaces enseignant et parent, il me faut les identifiants de démo de ces comptes.
 
 ---
 
@@ -95,8 +97,8 @@
 | Avances sur salaire | Prêts au personnel, à déduire d'un mois précis. |
 
 - **Pour qui :** comptable / secrétaire et direction.
-- **Unique :** **tout est en F CFA, au franc près.** Un reçu numéroté empêche les contestations des parents. Hors connexion, un **reçu provisoire** (PROV-…) est remis au parent, puis le reçu officiel est disponible au retour du réseau. Ce module couvre à la fois les recettes et les salaires : c'est la trésorerie complète de l'école.
-- Captures : `accounting-*`, `new-revenue_*`
+- **Unique :** **tout est en F CFA, au franc près.** Le **reçu officiel** (REC-2026-00001) porte l'en-tête de l'école, le montant **en lettres** (« Cent Mille Francs CFA Seulement »), la situation du compte (dû, payé, reste), un QR code et les cases pour la signature du caissier et le cachet. Il empêche les contestations des parents. Hors connexion, un **reçu provisoire** (PROV-…) est remis au parent, puis le reçu officiel est disponible au retour du réseau. Ce module couvre à la fois les recettes et les salaires : c'est la trésorerie complète de l'école.
+- Captures : `accounting-*`, `new-revenue_*`, `recu-paiement_*`
 
 ### 2.9 Messages (e-mail et WhatsApp)
 - **À quoi ça sert :** écrire aux parents (un élève, une classe, toute l'école), aux professeurs ou au personnel. Trois modèles sont rédigés au nom de l'école : **Absence**, **Convocation / réunion**, **Message libre**. L'historique indique l'état de chaque message (envoyé, ignoré, échoué).
@@ -154,6 +156,8 @@
 | Générer un certificat de scolarité (FASSINOU Boris) | ✅ `captures/pdf/certificat-scolarite-FASSINOU.pdf`. **Attention : cela a créé le certificat n° 00004/2026-2027 dans la démo.** |
 | Ouvrir les panneaux « Couleurs du bulletin » et « Couleurs du tableau d'honneur » | ✅ Ouverts sans rien enregistrer |
 | Ouvrir le formulaire d'ajout d'un compte parent | ✅ Ouvert sans rien enregistrer |
+| Ouvrir « Créer un utilisateur » (rôles Enseignant, Direction, Personnel) | ✅ Ouvert sans rien enregistrer |
+| Ouvrir le reçu d'un paiement existant | ✅ `recu-paiement_*` |
 
 **Volontairement non fait** (pour ne pas modifier les données ni contacter de vraies personnes) : enregistrer un paiement, envoyer un message, saisir ou modifier des notes, retirer des points de conduite, ajouter ou supprimer un élève ou un utilisateur, payer l'abonnement.
 
@@ -161,3 +165,5 @@
 - Le compte démo contient peu de données : 3 élèves, la classe 5ème A est vide, les dates de trimestres ne sont pas configurées. **Pour la vidéo, il serait plus parlant de remplir la démo** (plusieurs classes, une trentaine d'élèves, des paiements) avant de refaire les captures.
 - Bandeau visible sur la démo : « Il vous reste 9 jours avant la fin de votre essai ». Mieux vaut l'éviter dans la vidéo.
 - Fonctions annoncées « Bientôt disponible » : envoi par SMS, authentification à deux facteurs.
+- **Captures :** 90 images (45 en 1440 px et 45 en 390 px, soit 44 écrans), plus les 4 PDF générés. Les noms suivent le format `page_desktop-1440.png` ou `page_mobile-390.png`. Deux panneaux n'existent qu'en une seule largeur : « Modifier les accès » (mobile) et le rôle Enseignant (ordinateur).
+- Le site a répondu lentement par moments pendant l'exploration (« The server is temporarily unavailable » à la connexion).
