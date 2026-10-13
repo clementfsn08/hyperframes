@@ -1,0 +1,246 @@
+{
+  "typography": [
+    {
+      "role": "display",
+      "fontFamily": "Outfit",
+      "fontSize": "70.4px",
+      "fontWeight": "800",
+      "lineHeight": "73.216px",
+      "letterSpacing": "-1.408px",
+      "color": "#FFFFFF",
+      "sampleText": "Toute votre école.Dans votre main."
+    },
+    {
+      "role": "heading",
+      "fontFamily": "Outfit",
+      "fontSize": "46.4px",
+      "fontWeight": "800",
+      "lineHeight": "51.04px",
+      "letterSpacing": "-0.928px",
+      "color": "#0B3A75",
+      "sampleText": "Vous dirigez une école, pas une pile de cahiers."
+    },
+    {
+      "role": "heading-2",
+      "fontFamily": "Outfit",
+      "fontSize": "41.6px",
+      "fontWeight": "800",
+      "lineHeight": "45.76px",
+      "letterSpacing": "-0.832px",
+      "color": "#0B3A75",
+      "sampleText": "Sachez à tout moment combien votre école a encaissé."
+    },
+    {
+      "role": "heading-3",
+      "fontFamily": "Outfit",
+      "fontSize": "21px",
+      "fontWeight": "700",
+      "lineHeight": "33.6px",
+      "letterSpacing": "-0.42px",
+      "color": "#0B3A75",
+      "sampleText": "Chaque élève, un dossier complet"
+    },
+    {
+      "role": "body",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": "19.2px",
+      "fontWeight": "400",
+      "lineHeight": "30.72px",
+      "letterSpacing": "normal",
+      "color": "#C9DAF3",
+      "sampleText": "Inscriptions, notes, bulletins, scolarité et emploi du temps"
+    },
+    {
+      "role": "link",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": "15px",
+      "fontWeight": "600",
+      "lineHeight": "24px",
+      "letterSpacing": "normal",
+      "color": "#0B3A75",
+      "sampleText": "Fonctionnalités"
+    }
+  ],
+  "spacing": {
+    "observed": [
+      5,
+      6,
+      8,
+      9,
+      10,
+      12,
+      14,
+      16,
+      18,
+      20,
+      22,
+      24,
+      26,
+      28,
+      30
+    ],
+    "baseUnit": 4
+  },
+  "radius": [
+    "12px",
+    "20px",
+    "22px",
+    "24px",
+    "3.35544e+07px"
+  ],
+  "shadows": [
+    {
+      "value": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(11, 42, 85, 0.35) 0px 24px 48px -20px",
+      "count": 2
+    },
+    {
+      "value": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(47, 128, 224, 0.7) 0px 12px 24px -10px",
+      "count": 2
+    },
+    {
+      "value": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(253, 181, 21, 0.8) 0px 12px 24px -10px",
+      "count": 2
+    },
+    {
+      "value": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(11, 58, 117, 0.7) 0px 12px 24px -10px",
+      "count": 2
+    },
+    {
+      "value": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(11, 42, 85, 0.45) 0px 30px 60px -28px",
+      "count": 1
+    }
+  ],
+  "buttons": [
+    {
+      "label": "Commencer un essai gratuit →",
+      "background": "#FDB515",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#0B2A55",
+      "padding": "18px 32px",
+      "borderRadius": "3.35544e+07px",
+      "border": "0px solid rgb(11, 42, 85)",
+      "boxShadow": "none",
+      "fontSize": "17px",
+      "fontWeight": "700",
+      "height": "63.1875px"
+    },
+    {
+      "label": "Recevoir ma démo gratuite →",
+      "background": "#FDB515",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#0B2A55",
+      "padding": "0px",
+      "borderRadius": "3.35544e+07px",
+      "border": "0px none rgb(11, 42, 85)",
+      "boxShadow": "none",
+      "fontSize": "17px",
+      "fontWeight": "700",
+      "height": "56px"
+    }
+  ],
+  "cards": [
+    {
+      "label": "card",
+      "background": "#FFFFFF",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#14223A",
+      "padding": "28px",
+      "borderRadius": "20px",
+      "border": "1px solid rgb(227, 234, 245)",
+      "boxShadow": "none",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "244.344px"
+    },
+    {
+      "label": "card",
+      "background": "#FFFFFF",
+      "backgroundImage": "",
+      "backdropFilter": "",
+      "color": "#14223A",
+      "padding": "32px 26px",
+      "borderRadius": "22px",
+      "border": "0px solid rgb(20, 34, 58)",
+      "boxShadow": "none",
+      "fontSize": "16px",
+      "fontWeight": "400",
+      "height": "321.562px"
+    }
+  ],
+  "nav": {
+    "label": "navigation",
+    "background": "#FFFFFF",
+    "backgroundImage": "",
+    "backdropFilter": "",
+    "color": "#14223A",
+    "padding": "0px",
+    "borderRadius": "0px",
+    "border": "",
+    "boxShadow": "none",
+    "fontSize": "16px",
+    "fontWeight": "400",
+    "height": "69px"
+  },
+  "chips": [
+    {
+      "label": "Présent",
+      "background": "#E2F5EA",
+      "color": "#116B3A",
+      "padding": "2px 8px",
+      "borderRadius": "3.35544e+07px",
+      "border": "0px solid rgb(17, 107, 58)",
+      "boxShadow": "none",
+      "fontSize": "11px",
+      "fontWeight": "700",
+      "height": "21.5938px"
+    },
+    {
+      "label": "Absent",
+      "background": "#FFF1CC",
+      "color": "#7A5300",
+      "padding": "2px 8px",
+      "borderRadius": "3.35544e+07px",
+      "border": "0px solid rgb(122, 83, 0)",
+      "boxShadow": "none",
+      "fontSize": "11px",
+      "fontWeight": "700",
+      "height": "21.5938px"
+    },
+    {
+      "label": "Le plus choisi",
+      "background": "#FDB515",
+      "color": "#0B2A55",
+      "padding": "5px 12px",
+      "borderRadius": "3.35544e+07px",
+      "border": "0px solid rgb(11, 42, 85)",
+      "boxShadow": "none",
+      "fontSize": "11px",
+      "fontWeight": "700",
+      "height": "24.6562px"
+    },
+    {
+      "label": "-20 %",
+      "background": "oklab(0.999994 0.0000455678 0.0000200868 / 0.14)",
+      "color": "#FFFFFF",
+      "padding": "2px 8px",
+      "borderRadius": "3.35544e+07px",
+      "border": "0px solid rgb(255, 255, 255)",
+      "boxShadow": "none",
+      "fontSize": "11px",
+      "fontWeight": "700",
+      "height": "18.6562px"
+    }
+  ],
+  "statCells": [],
+  "tabs": [],
+  "backgrounds": [
+    {
+      "value": "linear-gradient(100deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.65) 50%, rgba(255, 255, 255, 0) 100%)",
+      "area": 48005
+    }
+  ],
+  "glass": []
+}

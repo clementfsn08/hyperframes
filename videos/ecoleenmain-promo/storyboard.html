@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ecoleenmain — Storyboard v1</title>
+<style>
+@font-face{font-family:Outfit;font-weight:500;src:url(assets/fonts/outfit-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:Outfit;font-weight:700;src:url(assets/fonts/outfit-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:Outfit;font-weight:800;src:url(assets/fonts/outfit-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:Jakarta;font-weight:400;src:url(assets/fonts/plus-jakarta-sans-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:Jakarta;font-weight:600;src:url(assets/fonts/plus-jakarta-sans-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:Jakarta;font-weight:700;src:url(assets/fonts/plus-jakarta-sans-latin-700-normal.woff2) format("woff2")}
+:root{--navy:#0B3A75;--deep:#062A57;--ink:#14223A;--yellow:#FDB515;--canvas:#F4F7FC;--muted:#5A6B85;--paper:#FFFDF7;--green:#1F7A3F;--red:#C0392B;--amber:#E8A33D}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#E9EEF6;color:var(--ink);font-family:Jakarta,system-ui,sans-serif;padding:40px 48px 64px}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:28px}
+h1{font-family:Outfit;font-weight:800;font-size:34px;color:var(--navy);letter-spacing:-.02em}
+h1 span{font-size:15px;background:var(--yellow);color:var(--ink);border-radius:99px;padding:3px 10px;vertical-align:middle;margin-left:8px}
+.dek{color:var(--muted);font-size:15px;margin-top:6px;max-width:820px}
+.tag{font:600 13px Jakarta;background:#fff;border:1px solid #C9DAF3;border-radius:99px;padding:8px 14px;color:var(--navy);white-space:nowrap}
+.act{grid-column:1/-1;font:700 12px Jakarta;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);border-bottom:2px solid var(--navy);padding-bottom:6px;margin-top:10px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px 22px}
+.card{display:flex;flex-direction:column;gap:8px}
+.cell{aspect-ratio:16/9;container-type:inline-size;position:relative;overflow:hidden;border-radius:10px;box-shadow:0 2px 10px rgba(6,42,87,.12);background:var(--canvas)}
+.label{display:flex;justify-content:space-between;font:700 12px Jakarta;color:var(--navy)}
+.label i{font-style:normal;color:var(--muted);font-weight:600}
+.note{font-size:12.5px;line-height:1.45;color:#33445F}
+.note b{color:var(--ink)}
+.chip{align-self:flex-start;font:600 11px Jakarta;background:#DCE8FA;color:var(--navy);border-radius:99px;padding:3px 9px}
+.vo{font-size:12px;color:var(--muted);font-style:italic}
+/* shared in-cell atoms (sizes in cqw so the sheet matches 1920x1080) */
+.abs{position:absolute}
+.disp{font-family:Outfit;font-weight:800;letter-spacing:-.02em;line-height:1}
+.gline{position:absolute;left:5cqw;right:5cqw;top:4.5cqw;height:6.2cqw;background:#fff;border:.15cqw solid #C9DAF3;border-radius:1cqw;display:flex;align-items:center;gap:2cqw;padding:0 2cqw;font-family:Outfit;font-weight:700;font-size:2.6cqw;color:var(--ink)}
+.gline .n{color:var(--navy);font-weight:800}
+.gline .ap{margin-left:auto;background:var(--yellow);border-radius:99px;padding:.5cqw 1.6cqw;font-size:2cqw}
+.shot{position:absolute;border-radius:1cqw;box-shadow:0 1.5cqw 3cqw rgba(6,42,87,.25);background-size:cover;background-position:top left;border:.15cqw solid #fff}
+.doc{position:absolute;background-size:cover;background-position:center;box-shadow:0 1.2cqw 2.6cqw rgba(6,42,87,.3);border:.15cqw solid #fff}
+.ptr{position:absolute;width:2.2cqw;height:2.2cqw;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 .8cqw rgba(253,181,21,.35)}
+.call{position:absolute;font:700 1.7cqw Jakarta;background:var(--navy);color:#fff;border-radius:99px;padding:.6cqw 1.4cqw;white-space:nowrap}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>ecoleenmain — « La nuit des bulletins » × « Le bulletin de votre école » <span>v1</span></h1>
+    <p class="dek">Cette vidéo dit aux directeurs d'écoles au Bénin qu'avec ecoleenmain, c'est leur école qui a les meilleures notes. Esquisses de mise en page : placement, hiérarchie et texte — pas encore l'animation finale.</p>
+  </div>
+  <div class="tag">1920×1080 · ~50 s · 9 scènes · voix FR féminine</div>
+</header>
+
+<div class="grid">
+<div class="act">Acte 1 — Avant : la nuit des bulletins</div>
+
+<!-- 01 -->
+<div class="card">
+  <div class="cell" id="frame-01" style="background:radial-gradient(circle at 30% 30%,#3a2a12 0,#120d07 45%,#05060a 100%)">
+    <div class="abs" style="left:8cqw;top:8cqw;width:26cqw;height:26cqw;border-radius:50%;background:radial-gradient(circle,rgba(253,181,21,.45),rgba(253,181,21,0) 70%)"></div>
+    <div class="abs" style="left:10cqw;bottom:8cqw;width:30cqw;height:3cqw;background:#c9b48a;border-radius:.4cqw;box-shadow:0 -3cqw 0 #b9a271,0 -6cqw 0 #d6c39b,0 -9cqw 0 #a98f5e,0 -12cqw 0 #cbb68c"></div>
+    <div class="abs disp" style="right:7cqw;top:8cqw;font-size:6cqw;color:#F6E7C8;font-family:Outfit">02:00</div>
+    <div class="abs" style="right:7cqw;top:16cqw;font:600 1.8cqw Jakarta;color:#b9a98a;letter-spacing:.12em">FIN DU 1ER TRIMESTRE</div>
+    <div class="abs disp" style="right:7cqw;bottom:13cqw;font-size:11cqw;color:#FF6B5A">287</div>
+    <div class="abs" style="right:7cqw;bottom:9cqw;font:600 2.2cqw Jakarta;color:#F6E7C8">bulletins restants… à la main</div>
+  </div>
+  <div class="label">01 · LA NUIT DES BULLETINS <i>0,0–6,0 s</i></div>
+  <p class="note"><b>L'horloge 02:00 bat d'abord,</b> puis le compteur rouge « 287 » arrive et ne descend que d'un cran, lentement. La lampe ambre vacille légèrement. Coupe nette vers la lumière.</p>
+  <p class="vo">« Deux heures du matin. Il vous reste deux cent quatre-vingt-sept bulletins à taper… à la main. »</p>
+  <span class="chip">→ flash blanc</span>
+</div>
+
+<!-- 02 -->
+<div class="card">
+  <div class="cell" id="frame-02" style="background:var(--paper)">
+    <div class="abs" style="left:6cqw;right:6cqw;top:5cqw;height:.5cqw;background:linear-gradient(90deg,#008751 33%,#FCD116 33% 66%,#E8112D 66%)"></div>
+    <div class="abs" style="left:0;right:0;top:8cqw;text-align:center;font:700 1.7cqw Jakarta;color:#333;letter-spacing:.06em">RÉPUBLIQUE DU BÉNIN · MINISTÈRE DE L'ENSEIGNEMENT</div>
+    <div class="abs disp" style="left:0;right:0;top:15cqw;text-align:center;font-size:7cqw;color:var(--green)">BULLETIN DE NOTES</div>
+    <div class="abs" style="left:0;right:0;top:25.5cqw;text-align:center;font:700 3cqw Outfit;color:var(--ink)">Votre école · 1<sup>er</sup> trimestre</div>
+    <div class="abs" style="left:20cqw;right:20cqw;top:33cqw;height:.3cqw;background:var(--yellow)"></div>
+    <div class="abs" style="left:0;right:0;bottom:7cqw;text-align:center;font:600 2.4cqw Jakarta;color:var(--navy)">Et si c'était votre école qui avait les meilleures notes ?</div>
+  </div>
+  <div class="label">02 · LE BULLETIN DE VOTRE ÉCOLE <i>6,0–10,0 s</i></div>
+  <p class="note"><b>Le flash blanc laisse place au papier,</b> l'en-tête officiel s'imprime ligne par ligne de haut en bas, la question arrive en dernier. Le titre « BULLETIN DE NOTES » reste en haut pour la suite.</p>
+  <p class="vo">« Et si, cette année, c'était votre école qui avait les meilleures notes ? »</p>
+  <span class="chip">→ glisse vers le haut</span>
+</div>
+
+<div class="act">Acte 2 — Le bulletin : 5 matières notées</div>
+
+<!-- 03 -->
+<div class="card">
+  <div class="cell" id="frame-03">
+    <div class="gline">Bulletins <span class="n">20/20</span><span class="ap">Excellent</span></div>
+    <div class="shot" style="left:5cqw;top:14cqw;width:52cqw;height:32.5cqw;background-image:url(capture/assets/screens/grades-tle_desktop-1440.png)"></div>
+    <div class="doc" style="right:5cqw;top:13cqw;width:30cqw;height:42cqw;background-image:url(capture/assets/docs/bulletins-TLE-AB-T1.png);transform:rotate(3deg)"></div>
+    <div class="call" style="left:7cqw;top:47.5cqw">Moyennes · rangs · appréciations</div>
+    <div class="ptr" style="left:44cqw;top:22cqw"></div>
+  </div>
+  <div class="label">03 · BULLETINS 20/20 <i>10,0–17,0 s</i></div>
+  <p class="note"><b>La ligne « Bulletins · 20/20 · Excellent » s'écrit,</b> la vraie page Notes flotte en 3D légère ; les mots « moyennes, rangs, appréciations » pointent la capture ; « en un clic » = clic jaune sur « Télécharger les bulletins » → le vrai bulletin glisse au premier plan.</p>
+  <p class="vo">« Bulletins : vingt sur vingt. Moyennes, rangs, appréciations… tout se calcule seul, à votre logo, en un clic. »</p>
+  <span class="chip">→ glisse vers le haut</span>
+</div>
+
+<!-- 04 -->
+<div class="card">
+  <div class="cell" id="frame-04">
+    <div class="gline">Recouvrement <span class="n">18/20</span><span class="ap">Très bien</span></div>
+    <div class="shot" style="left:5cqw;top:14cqw;width:46cqw;height:28.8cqw;background-image:url(capture/assets/screens/accounting-tuition_desktop-1440.png)"></div>
+    <div class="shot" style="right:5cqw;top:12.5cqw;width:36cqw;height:39cqw;background-image:url(capture/assets/screens/recu-paiement_desktop-1440.png);background-position:center top;background-size:160%"></div>
+    <div class="call" style="right:8cqw;top:48cqw;background:var(--yellow);color:var(--ink)">REC-2026-00001 · 100 000 F CFA</div>
+    <div class="call" style="left:7cqw;top:45cqw">Impayés en temps réel : 680 000 F</div>
+  </div>
+  <div class="label">04 · RECOUVREMENT 18/20 <i>17,0–24,0 s</i></div>
+  <p class="note"><b>La caméra plonge sur le vrai reçu</b> (numéro + « Cent mille francs CFA ») pendant « reçu numéroté », puis recule sur les frais de scolarité où la pastille « Impayés : 680 000 F » s'allume sur « temps réel ».</p>
+  <p class="vo">« Recouvrement : très bien. Chaque versement a son reçu numéroté, et les impayés s'affichent en temps réel. »</p>
+  <span class="chip">→ coupure (grésillement)</span>
+</div>
+
+<!-- 05 -->
+<div class="card">
+  <div class="cell" id="frame-05">
+    <div class="gline">Hors connexion <span class="n">19/20</span><span class="ap">Félicitations</span></div>
+    <div class="abs" style="left:38cqw;top:12.5cqw;width:24cqw;height:44cqw;border-radius:3cqw;background:#0b0f18;padding:1cqw;box-shadow:0 2cqw 4cqw rgba(6,42,87,.35)">
+      <div style="width:100%;height:100%;border-radius:2.2cqw;background:url(capture/assets/screens/hors-connexion_mobile-390.png) top/cover"></div>
+    </div>
+    <div class="call" style="left:43cqw;top:27cqw;background:#E8761B">● Hors connexion · 3 saisies</div>
+    <div class="abs disp" style="left:5cqw;top:24cqw;font-size:4.2cqw;color:var(--navy);width:30cqw">Délestage ?<br><span style="color:var(--ink)">L'école continue.</span></div>
+    <div class="abs" style="right:5cqw;top:26cqw;width:26cqw;font:600 2cqw Jakarta;color:var(--muted)">Appel ✓ Notes ✓ Paiements ✓<br><span style="color:var(--green)">↻ Tout part au retour du réseau</span></div>
+  </div>
+  <div class="label">05 · HORS CONNEXION 19/20 <i>24,0–30,5 s</i></div>
+  <p class="note"><b>L'écran grésille et s'assombrit une demi-seconde,</b> le téléphone arrive au centre, la pastille passe de vert « Connecté » à orange « Hors connexion » ; à « retour du réseau », elle repasse au vert « ✓ Envoyé ».</p>
+  <p class="vo">« Délestage ? Votre école continue, même sans internet. Tout part au retour du réseau. »</p>
+  <span class="chip">→ glisse vers le haut</span>
+</div>
+
+<!-- 06 -->
+<div class="card">
+  <div class="cell" id="frame-06">
+    <div class="gline">Documents officiels <span class="n">20/20</span><span class="ap">Excellent</span></div>
+    <div class="doc" style="left:7cqw;top:15cqw;width:28cqw;height:39.5cqw;background-image:url(capture/assets/docs/cartes-scolaires-TLE-AB.png);background-position:top;background-size:100% auto;transform:rotate(-6deg)"></div>
+    <div class="doc" style="left:37cqw;top:13.5cqw;width:26cqw;height:37cqw;background-image:url(capture/assets/docs/certificat-scolarite-FASSINOU.png)"></div>
+    <div class="doc" style="right:5cqw;top:18cqw;width:34cqw;height:24cqw;background-image:url(capture/assets/docs/tableau-honneur-TLE-AB-T1.png);transform:rotate(5deg)"></div>
+    <div class="call" style="left:38cqw;top:50cqw;background:var(--yellow);color:var(--ink)">Prêts à imprimer</div>
+  </div>
+  <div class="label">06 · DOCUMENTS OFFICIELS <i>30,5–35,0 s</i></div>
+  <p class="note"><b>Chaque vrai document tombe sur la table quand la voix le nomme</b> — cartes (gauche), certificat (centre), tableau d'honneur (droite) — puis le trio se range et l'étiquette « Prêts à imprimer » claque.</p>
+  <p class="vo">« Cartes scolaires, certificats, tableau d'honneur : prêts à imprimer. »</p>
+  <span class="chip">→ glisse vers le haut</span>
+</div>
+
+<!-- 07 -->
+<div class="card">
+  <div class="cell" id="frame-07">
+    <div class="gline">Communication <span class="n">18/20</span><span class="ap">Très bien</span></div>
+    <div class="shot" style="left:5cqw;top:14cqw;width:42cqw;height:26.3cqw;background-image:url(capture/assets/screens/ajout-utilisateur-enseignant_desktop-1440.png);transform:perspective(60cqw) rotateY(8deg)"></div>
+    <div class="shot" style="right:5cqw;top:14cqw;width:42cqw;height:29.8cqw;background-image:url(capture/assets/screens/messages-new_desktop-1440.png);transform:perspective(60cqw) rotateY(-8deg)"></div>
+    <div class="call" style="left:12cqw;top:44cqw">Enseignant · Parent : chacun son compte</div>
+    <div class="call" style="right:10cqw;top:47cqw;background:#25D366">Ouvrir WhatsApp</div>
+  </div>
+  <div class="label">07 · COMMUNICATION 18/20 <i>35,0–40,5 s</i></div>
+  <p class="note"><b>Les deux panneaux s'ouvrent en livre</b> depuis les bords : compte enseignant à gauche (sur « enseignants et parents »), message aux parents à droite ; le bouton vert « Ouvrir WhatsApp » pulse sur « WhatsApp ».</p>
+  <p class="vo">« Enseignants et parents ont chacun leur compte, et WhatsApp prévient les familles. »</p>
+  <span class="chip">→ coupe sèche</span>
+</div>
+
+<div class="act">Acte 3 — Décision du conseil et signature</div>
+
+<!-- 08 -->
+<div class="card">
+  <div class="cell" id="frame-08" style="background:var(--paper)">
+    <div class="abs" style="left:6cqw;right:6cqw;top:5cqw;bottom:5cqw;border:1.4cqw solid #8E2E14;box-shadow:inset 0 0 0 .4cqw #F2A65A"></div>
+    <div class="abs disp" style="left:0;right:0;top:13cqw;text-align:center;font-size:6.6cqw;color:#8E2E14">TABLEAU D'HONNEUR</div>
+    <div class="abs" style="left:0;right:0;top:23cqw;text-align:center;font:600 2.2cqw Jakarta;color:#333">Décerné à</div>
+    <div class="abs disp" style="left:0;right:0;top:27cqw;text-align:center;font-size:5cqw;color:var(--navy)">Votre école</div>
+    <div class="abs" style="left:0;right:0;top:35cqw;text-align:center;font:600 2cqw Jakarta;color:#333">Moyenne générale <b style="color:#8E2E14">19/20</b> · 1<sup>er</sup> trimestre</div>
+    <div class="abs disp" style="right:10cqw;bottom:9cqw;font-size:2.6cqw;color:var(--yellow);border:.6cqw solid var(--yellow);border-radius:1cqw;padding:1cqw 1.6cqw;transform:rotate(-12deg)">ADMISE ✓</div>
+  </div>
+  <div class="label">08 · DÉCISION DU CONSEIL <i>40,5–44,5 s</i></div>
+  <p class="note"><b>Le diplôme se pose, inspiré du vrai tableau d'honneur,</b> « Votre école » s'écrit, puis le tampon jaune s'abat sur « tableau d'honneur » avec un léger tremblement.</p>
+  <p class="vo">« Décision du conseil : inscrite au tableau d'honneur. »</p>
+  <span class="chip">→ fondu</span>
+</div>
+
+<!-- 09 -->
+<div class="card">
+  <div class="cell" id="frame-09" style="background:linear-gradient(135deg,#0B3A75,#062A57)">
+    <div class="abs" style="left:24cqw;right:24cqw;top:14cqw;height:11cqw;background:#fff url(capture/assets/brand/logo.png) center/88% no-repeat;border-radius:1.4cqw"></div>
+    <div class="abs disp" style="left:0;right:0;top:31cqw;text-align:center;font-size:4.6cqw;color:#fff">Toute votre école, <span style="color:var(--yellow)">dans votre main.</span></div>
+    <div class="abs" style="left:0;right:0;top:41cqw;text-align:center;font:700 2.6cqw Jakarta;color:#fff">ecoleenmain.com</div>
+    <div class="abs" style="left:36cqw;right:36cqw;top:46.5cqw;text-align:center;font:700 1.9cqw Jakarta;background:var(--yellow);color:var(--ink);border-radius:99px;padding:.9cqw 0">14 jours offerts</div>
+  </div>
+  <div class="label">09 · SIGNATURE <i>44,5–50,5 s</i></div>
+  <p class="note"><b>Le symbole (main + toque) se pose, puis le mot « ecoleenmain » se complète lettre à lettre ;</b> le slogan monte, l'URL et la pastille jaune « 14 jours offerts » arrivent en dernier et tiennent.</p>
+  <p class="vo">« École en main. Toute votre école, dans votre main. Essai gratuit de quatorze jours. »</p>
+  <span class="chip">fin</span>
+</div>
+
+<!-- seam map -->
+<div class="card">
+  <div class="cell" style="background:#fff;padding:5.70cqw;display:flex;flex-direction:column;justify-content:center;gap:3.80cqw">
+    <div class="disp" style="font-size:5.70cqw;color:var(--navy)">Transitions</div>
+    <div style="display:flex;gap:.11.40cqw;font:600 3.04cqw Jakarta;flex-wrap:wrap;align-items:center">
+      <span>01</span>⚡ flash<span>02</span>↑<span>03</span>↑<span>04</span>⌁ grésillement<span>05</span>↑<span>06</span>↑<span>07</span>| coupe<span>08</span>◐ fondu<span>09</span>
+    </div>
+    <div style="font:500 3.04cqw Jakarta;color:var(--muted)">La ligne de bulletin (matière · note · appréciation) reste ancrée en haut de 03 à 07 : seul son contenu change.</div>
+  </div>
+  <div class="label">CARTE DES TRANSITIONS <i>9 scènes</i></div>
+</div>
+
+<!-- tokens -->
+<div class="card">
+  <div class="cell" style="background:#fff;padding:5.70cqw;display:grid;grid-template-columns:1fr 1fr;gap:3.80cqw">
+    <div style="display:flex;flex-direction:column;gap:1.90cqw;font:600 2.85cqw Jakarta">
+      <div><span style="display:inline-block;width:5.70cqw;height:5.70cqw;background:#0B3A75;border-radius:.7.60cqw;vertical-align:middle"></span> Bleu marine #0B3A75</div>
+      <div><span style="display:inline-block;width:5.70cqw;height:5.70cqw;background:#FDB515;border-radius:.7.60cqw;vertical-align:middle"></span> Jaune #FDB515</div>
+      <div><span style="display:inline-block;width:5.70cqw;height:5.70cqw;background:#F4F7FC;border:1px solid #ccd;border-radius:.7.60cqw;vertical-align:middle"></span> Fond #F4F7FC</div>
+      <div><span style="display:inline-block;width:5.70cqw;height:5.70cqw;background:#14223A;border-radius:.7.60cqw;vertical-align:middle"></span> Encre #14223A</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1.90cqw">
+      <div class="disp" style="font-size:6.46cqw;color:var(--navy)">Outfit 800</div>
+      <div style="font:600 3.42cqw Jakarta">Plus Jakarta Sans</div>
+      <div style="font:500 2.66cqw Jakarta;color:var(--muted)">Interdits : texte jaune sur fond clair · bandeau « fin d'essai » · chiffres inventés</div>
+    </div>
+  </div>
+  <div class="label">CHARTE <i>frame.md</i></div>
+</div>
+</div>
+</body>
+</html>
