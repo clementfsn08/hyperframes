@@ -1,0 +1,3 @@
+renders/work-*/
+renders/.*
+.hyperframes/artifacts/
