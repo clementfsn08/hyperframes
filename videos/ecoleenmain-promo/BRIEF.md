@@ -45,7 +45,7 @@ Voix off féminine française, posée comme une voix publicitaire. Le script val
 
 - Ne pas réutiliser le bandeau « Il vous reste 9 jours avant la fin de votre essai » : recadrer les captures.
 - La démo ne contient que 3 élèves : privilégier les documents et les écrans les plus parlants, éviter de montrer des totaux minuscules.
-- Références motion de l'utilisateur sur x.com non consultables (réseau bloqué) : style choisi par Claude.
+- Références motion de l’utilisateur : 3 vidéos sur 4 récupérées sur x.com (voir section ci-dessous).
 - Pas de capture automatique du site (`hyperframes capture`) : les captures authentifiées existent déjà dans ../../captures.
 
 ## Références motion (analysées le 15/10/2026)
