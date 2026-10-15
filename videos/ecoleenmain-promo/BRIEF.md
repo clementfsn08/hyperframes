@@ -55,3 +55,9 @@ Voix off féminine française, posée comme une voix publicitaire. Le script val
 - references/sheet-samuel_yostt.jpg — ViralGrow : pub SaaS claire, mot qui change dans la phrase, texte à gauche / téléphones à droite, éventail de téléphones, mosaïque inclinée, logo + bouton CTA.
 - 4e référence (ultimaxbt) : post supprimé par son auteur.
 - Direction retenue (proposée) : structure ViralGrow + effets Rerun/leonabboud, couleurs ecoleenmain ; un plan toutes les 1–1,5 s.
+- prompt-motion.com (galerie Opus 5.5, 234 entrées ; vidéos et prompts propriété de leurs créateurs, gardés hors dépôt) :
+  « Parenting app hype video » (@francoxavier33) = modèle principal (phrase tapée + mot clé en italique souligné, téléphone + cartes de notification, une phrase par plan) ;
+  « Ren app launch » (@macrohou) = question → réponse + téléphone + chiffre animé ; « Matra » (@gautam_mer1) = Introducing + icône à halo ;
+  « Food craving launch film » (@ultimaxbt) = la 4e référence X supprimée, retrouvée ici.
+  Méthode retenue : une idée par plan, beaucoup d'espace, une couleur d'accent, coupes calées sur le rythme de la musique, vraies captures, pas d'effets gadgets.
+- Nouvel angle validé par l'utilisateur : le vrai problème résolu = impliquer les parents (suivi notes/absences/scolarité) + une seule saisie enseignant → bulletins, tableaux d'honneur, certificats sans recopie au secrétariat. « Hors connexion » = argument secondaire.
