@@ -1,0 +1,692 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 12,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 4 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/hyperframes/videos/ecoleenmain-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      },
+      {
+        "code": "composition_file_too_large",
+        "severity": "warning",
+        "message": "This HTML composition file has 336 lines. Smaller sub-compositions are easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/hyperframes/videos/ecoleenmain-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Split coherent scenes or layers into separate .html files under compositions/, then mount them from the parent with data-composition-src so each file stays small enough to inspect, revise, and validate independently."
+      },
+      {
+        "code": "negative_z_index",
+        "severity": "warning",
+        "message": "`z-index: -1` paints the element behind its nearest stacking context's own content. With no stacking-context ancestor that context is the composition root itself, so an opaque background there hides it entirely: in the DOM, laid out, and absent from the picture. A transparent root leaves it visible. Siblings at `z-index: 0` or above are unaffected.",
+        "selector": ".mark .ul",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/hyperframes/videos/ecoleenmain-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Give the element's parent a stacking context - `isolation: isolate` is the cheapest, and `transform`, `filter`, `opacity` below 1, `contain: paint` and `will-change` all work too. The negative-z child then paints above that parent's background and renders normally. Or express paint order through DOM order - an earlier sibling paints behind a later one - and raise the elements that should sit in front rather than lowering this one."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"bg\"> is a timeline element that contains nested <div id=\"bg-fill\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#bg",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/hyperframes/videos/ecoleenmain-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"bg\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s1\"> is a timeline element that contains nested <div id=\"s1-stage\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s1",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/hyperframes/videos/ecoleenmain-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s1\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s2\"> is a timeline element that contains nested <div id=\"s2-stage\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s2",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/hyperframes/videos/ecoleenmain-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s2\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s3\"> is a timeline element that contains nested <div id=\"s3-stage\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s3",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/hyperframes/videos/ecoleenmain-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s3\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s4\"> is a timeline element that contains nested <div id=\"s4-stage\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s4",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/hyperframes/videos/ecoleenmain-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s4\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s5\"> is a timeline element that contains nested <div id=\"s5-stage\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s5",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/hyperframes/videos/ecoleenmain-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s5\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s6\"> is a timeline element that contains nested <div id=\"s6-stage\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s6",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/hyperframes/videos/ecoleenmain-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s6\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s7\"> is a timeline element that contains nested <div id=\"s7-stage\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s7",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/hyperframes/videos/ecoleenmain-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s7\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<section id=\"s8\"> is a timeline element that contains nested <div id=\"s8-stage\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#s8",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/hyperframes/videos/ecoleenmain-promo/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <section id=\"s8\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      }
+    ],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "clip_media_fit",
+        "severity": "warning",
+        "message": "Audio \"vo\" is 41.90s but its slot (data-duration) is 45.00s — the slot is shortened to the media length when rendered. Set data-duration to ~41.90s if that isn't intended.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "45",
+          "data-width": "1920",
+          "data-height": "1080"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "time": 0
+      }
+    ]
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 8,
+    "findings": [
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "info",
+        "time": 2.5,
+        "selector": "#blob-a",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": -218.02,
+          "top": -258.94,
+          "right": 681.98,
+          "bottom": 641.06,
+          "width": 900,
+          "height": 900
+        },
+        "containerSelector": "#root",
+        "text": "",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "left": 218.02,
+          "top": 258.94
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": -218.02,
+          "y": -258.94,
+          "width": 900,
+          "height": 900
+        },
+        "firstSeen": 2.5,
+        "lastSeen": 42.5,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.5,
+          7.5,
+          12.5,
+          17.5,
+          22.5,
+          27.5,
+          32.5,
+          37.5,
+          42.5
+        ]
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "info",
+        "time": 2.5,
+        "selector": "#blob-b",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": 1138.33,
+          "top": 399.09,
+          "right": 2238.33,
+          "bottom": 1499.09,
+          "width": 1100,
+          "height": 1100
+        },
+        "containerSelector": "#root",
+        "text": "",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "right": 318.33,
+          "bottom": 419.09
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1138.33,
+          "y": 399.09,
+          "width": 1100,
+          "height": 1100
+        },
+        "firstSeen": 2.5,
+        "lastSeen": 42.5,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.5,
+          7.5,
+          12.5,
+          17.5,
+          22.5,
+          27.5,
+          32.5,
+          37.5,
+          42.5
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 7.5,
+        "selector": "#s2-swap2",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 150,
+          "top": 457.96,
+          "right": 805.98,
+          "bottom": 572.2,
+          "width": 655.98,
+          "height": 114.24
+        },
+        "containerSelector": "#s2-stage > div:nth-of-type(3)",
+        "text": "ses absences.",
+        "fixHint": "Text is 656px x 114px inside 900px x 130px and overflows by up to 12px; increase the container height to at least ~142px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 150,
+          "top": 470,
+          "right": 1050,
+          "bottom": 600,
+          "width": 900,
+          "height": 130
+        },
+        "overflow": {
+          "top": 12.04
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 150,
+          "y": 457.96,
+          "width": 655.98,
+          "height": 114.24
+        },
+        "firstSeen": 7.5,
+        "lastSeen": 7.5,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          7.5
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 7.5,
+        "selector": "#s2-swap1",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 150,
+          "top": 344.34,
+          "right": 622.53,
+          "bottom": 458.58,
+          "width": 472.53,
+          "height": 114.23
+        },
+        "containerSelector": "#s2-stage > div:nth-of-type(3)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 150,
+          "top": 470,
+          "right": 1050,
+          "bottom": 600,
+          "width": 900,
+          "height": 130
+        },
+        "overflow": {
+          "top": 125.66
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 150,
+          "y": 344.34,
+          "width": 472.53,
+          "height": 114.23
+        },
+        "firstSeen": 7.5,
+        "lastSeen": 7.5,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          7.5
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 7.5,
+        "selector": "#s2-swap2",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 150,
+          "top": 458.58,
+          "right": 805.98,
+          "bottom": 572.81,
+          "width": 655.98,
+          "height": 114.23
+        },
+        "containerSelector": "#s2-stage > div:nth-of-type(3)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 150,
+          "top": 470,
+          "right": 1050,
+          "bottom": 600,
+          "width": 900,
+          "height": 130
+        },
+        "overflow": {
+          "top": 11.42
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 150,
+          "y": 458.58,
+          "width": 655.98,
+          "height": 114.23
+        },
+        "firstSeen": 7.5,
+        "lastSeen": 7.5,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          7.5
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 7.5,
+        "selector": "#s2-swap3",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 150,
+          "top": 698.47,
+          "right": 731.73,
+          "bottom": 812.7,
+          "width": 581.73,
+          "height": 114.23
+        },
+        "containerSelector": "#s2-stage > div:nth-of-type(3)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 150,
+          "top": 470,
+          "right": 1050,
+          "bottom": 600,
+          "width": 900,
+          "height": 130
+        },
+        "overflow": {
+          "bottom": 212.7
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 150,
+          "y": 698.47,
+          "width": 581.73,
+          "height": 114.23
+        },
+        "firstSeen": 7.5,
+        "lastSeen": 7.5,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          7.5
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 7.5,
+        "selector": "#s2-shot",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 1264,
+          "top": -659,
+          "right": 1666,
+          "bottom": 975.8,
+          "width": 402,
+          "height": 1634.8
+        },
+        "containerSelector": "#s2-phone > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 1264,
+          "top": 104,
+          "right": 1666,
+          "bottom": 976,
+          "width": 402,
+          "height": 872
+        },
+        "overflow": {
+          "top": 763
+        },
+        "dataAttributes": {
+          "data-hf-authored-opacity": ""
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1264,
+          "y": -659,
+          "width": 402,
+          "height": 1634.8
+        },
+        "firstSeen": 7.5,
+        "lastSeen": 7.5,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          7.5
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 17.5,
+        "selector": "#s4-card > img:nth-of-type(1)",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 781.28,
+          "top": 159.08,
+          "right": 1862.88,
+          "bottom": 835.08,
+          "width": 1081.6,
+          "height": 676
+        },
+        "containerSelector": "#s4-card",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 779.2,
+          "top": 157,
+          "right": 1860.8,
+          "bottom": 833,
+          "width": 1081.6,
+          "height": 676
+        },
+        "overflow": {
+          "right": 2.08,
+          "bottom": 2.08
+        },
+        "dataAttributes": {
+          "data-hf-authored-opacity": ""
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 781.28,
+          "y": 159.08,
+          "width": 1081.6,
+          "height": 676
+        },
+        "firstSeen": 17.5,
+        "lastSeen": 17.5,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17.5
+        ]
+      }
+    ],
+    "duration": 45,
+    "samples": [
+      2.5,
+      7.5,
+      12.5,
+      17.5,
+      22.5,
+      27.5,
+      32.5,
+      37.5,
+      42.5
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 8,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 2.98:1; WCAG AA requires 4.5:1.",
+        "text": "● Hors connexion · 3 saisies en attente",
+        "fg": "rgb(255,255,255)",
+        "bg": "rgb(232,118,27)",
+        "ratio": 2.98,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(46,46,46)",
+        "large": false,
+        "selector": "#s7-pill-txt",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1360,
+          "y": 349.5,
+          "width": 310.671875,
+          "height": 23
+        },
+        "time": 32.5,
+        "times": [
+          32.5
+        ]
+      }
+    ],
+    "enabled": true,
+    "samples": [
+      2.5,
+      12.5,
+      22.5,
+      32.5,
+      42.5
+    ],
+    "checked": 21,
+    "passed": 20
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

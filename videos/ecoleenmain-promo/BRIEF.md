@@ -61,3 +61,10 @@ Voix off féminine française, posée comme une voix publicitaire. Le script val
   « Food craving launch film » (@ultimaxbt) = la 4e référence X supprimée, retrouvée ici.
   Méthode retenue : une idée par plan, beaucoup d'espace, une couleur d'accent, coupes calées sur le rythme de la musique, vraies captures, pas d'effets gadgets.
 - Nouvel angle validé par l'utilisateur : le vrai problème résolu = impliquer les parents (suivi notes/absences/scolarité) + une seule saisie enseignant → bulletins, tableaux d'honneur, certificats sans recopie au secrétariat. « Hors connexion » = argument secondaire.
+
+## Production v2 (16/10/2026)
+
+- Script v2 validé par l'utilisateur (SCRIPT.md). Composition monolithique `index.html` (8 scènes, une timeline GSAP calée sur `assets/vo/timings.json`).
+- Voix : Microsoft « Vivienne » (edge-tts). Conditions d'usage commercial du service Edge non garanties : pour une diffusion payante à grande échelle, remplacer par une voix sous licence (HeyGen/ElevenLabs) ou un enregistrement studio — il suffit de remplacer `assets/vo/voiceover.wav` en gardant le minutage.
+- Musique : Mixkit « Voxscape » (licence Mixkit gratuite, usage commercial autorisé), extrait 9 s → 55 s, atténuée sous la voix (`assets/music/music-ducked.wav`).
+- Visuels : vraies captures des espaces parent (`/parent`), enseignant (saisie des notes) et direction ; documents réellement générés (bulletin, tableau d'honneur, certificat, reçu).

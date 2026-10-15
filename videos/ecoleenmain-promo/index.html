@@ -1,55 +1,385 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1920, height=1080" />
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <title>ecoleenmain — publicité 45 s</title>
+    <script src="assets/vendor/gsap.min.js"></script>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+      @font-face { font-family: "Outfit"; font-weight: 600; src: url("assets/fonts/outfit-latin-600-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Outfit"; font-weight: 700; src: url("assets/fonts/outfit-latin-700-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Outfit"; font-weight: 800; src: url("assets/fonts/outfit-latin-800-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Jakarta"; font-weight: 500; src: url("assets/fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Jakarta"; font-weight: 600; src: url("assets/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Jakarta"; font-weight: 700; src: url("assets/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+
+      :root {
+        --navy: #0b3a75; --deep: #062a57; --ink: #14223a; --muted: #5a6b85;
+        --yellow: #fdb515; --canvas: #f4f7fc; --line: #c9daf3;
+        --green: #1f8a4c; --orange: #e8761b; --red: #c0392b;
       }
-      html,
-      body {
-        margin: 0;
-        width: 1920px;
-        height: 1080px;
-        overflow: hidden;
-        background: #0a0a0a;
-      }
-      #root {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-      }
-      #title {
-        color: #f4f4f5;
-        font-size: 72px;
-        font-weight: 600;
-        letter-spacing: -0.03em;
-      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--canvas); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: "Jakarta", system-ui, sans-serif; color: var(--ink); }
+      .clip { position: absolute; inset: 0; }
+      .stage { position: absolute; inset: 0; }
+      .abs { position: absolute; }
+      .display { font-family: "Outfit", system-ui, sans-serif; font-weight: 800; letter-spacing: -0.035em; line-height: 1.02; }
+      .word { display: inline-block; will-change: transform, opacity; }
+      .mark { position: relative; display: inline-block; isolation: isolate; }
+      .mark .ul { position: absolute; left: -0.04em; right: -0.04em; bottom: 0.06em; height: 0.2em; background: var(--yellow); border-radius: 0.1em; z-index: -1; transform-origin: left center; }
+
+      /* background */
+      #bg-fill { position: absolute; inset: 0; background: var(--canvas); }
+      .blob { position: absolute; border-radius: 50%; filter: blur(90px); }
+      #blob-a { width: 900px; height: 900px; left: -220px; top: -260px; background: rgba(253, 181, 21, 0.28); }
+      #blob-b { width: 1100px; height: 1100px; right: -320px; bottom: -420px; background: rgba(11, 58, 117, 0.16); }
+      #grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(11,58,117,.06) 1px, transparent 1px); background-size: 22px 22px; opacity: .55; }
+
+      /* phone */
+      .phone { position: absolute; width: 430px; height: 900px; border-radius: 66px; background: #0d1320; padding: 14px; box-shadow: 0 60px 120px rgba(6, 42, 87, 0.28), 0 18px 40px rgba(6, 42, 87, 0.18), inset 0 0 0 2px #2a3550; }
+      .phone .screen { position: relative; width: 402px; height: 872px; border-radius: 52px; overflow: hidden; background: #f4f7fc; }
+      .phone .screen img { position: absolute; left: 0; top: 0; width: 402px; }
+      .phone .notch { position: absolute; left: 50%; top: 26px; width: 120px; height: 34px; margin-left: -60px; border-radius: 20px; background: #0d1320; z-index: 3; }
+
+      .card-shadow { box-shadow: 0 40px 90px rgba(6, 42, 87, 0.22), 0 10px 26px rgba(6, 42, 87, 0.12); }
+      .notif { position: absolute; width: 420px; padding: 18px 20px; border-radius: 26px; background: rgba(255, 255, 255, 0.96); box-shadow: 0 24px 60px rgba(6, 42, 87, 0.25); display: flex; gap: 14px; align-items: flex-start; }
+      .notif img { width: 46px; height: 46px; border-radius: 12px; }
+      .notif .app { font: 600 15px "Jakarta"; color: var(--muted); display: flex; justify-content: space-between; width: 330px; }
+      .notif .t { font: 700 19px "Jakarta"; color: var(--ink); margin-top: 3px; }
+      .notif .d { font: 500 17px "Jakarta"; color: var(--muted); margin-top: 2px; }
+      .pill { display: inline-flex; align-items: center; gap: 10px; border-radius: 999px; font-family: "Jakarta"; font-weight: 700; white-space: nowrap; }
+      .hl-ring { position: absolute; border: 4px solid var(--yellow); border-radius: 22px; box-shadow: 0 0 0 9999px rgba(20, 34, 58, 0.0); }
+      .chip { position: absolute; padding: 10px 20px; border-radius: 999px; background: var(--navy); color: #fff; font: 700 22px "Jakarta"; white-space: nowrap; box-shadow: 0 12px 30px rgba(6,42,87,.25); }
+      .doc { position: absolute; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 50px 100px rgba(6, 42, 87, 0.28), 0 12px 30px rgba(6, 42, 87, 0.16); }
+      .doc img { display: block; width: 100%; height: 100%; object-fit: cover; }
+      .cursor { position: absolute; width: 44px; height: 44px; z-index: 20; }
     </style>
   </head>
   <body>
-    <div
-      id="root"
-      data-composition-id="main"
-      data-start="0"
-      data-duration="10"
-      data-width="1920"
-      data-height="1080"
-    >
-      <h1 id="title" class="clip" data-start="0" data-duration="10" data-track-index="0">Title</h1>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="45" data-width="1920" data-height="1080">
+
+      <!-- ===== background (whole film) ===== -->
+      <section id="bg" class="clip" data-start="0" data-duration="45" data-track-index="0">
+        <div id="bg-fill"></div>
+        <div id="blob-a" class="blob"></div>
+        <div id="blob-b" class="blob"></div>
+        <div id="grain"></div>
+      </section>
+
+      <!-- ===== S1 · hook ===== -->
+      <section id="s1" class="clip" data-start="0" data-duration="3.4" data-track-index="1">
+        <div id="s1-stage" class="stage" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+          <div class="display" style="font-size:150px;color:var(--navy);text-align:center;">
+            <span id="s1-w1" class="word">Suivez</span>
+            <span id="s1-w2" class="word">votre</span>
+            <span id="s1-w3" class="word">enfant…</span>
+          </div>
+          <div class="display" style="font-size:150px;color:var(--ink);margin-top:10px;">
+            <span id="s1-w4" class="word mark">de près.<span id="s1-ul" class="ul"></span></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== S2 · parent phone ===== -->
+      <section id="s2" class="clip" data-start="2.9" data-duration="7.5" data-track-index="2">
+        <div id="s2-stage" class="stage">
+          <div id="s2-brand" class="abs pill" style="left:150px;top:268px;padding:12px 22px 12px 14px;background:#fff;font-size:24px;color:var(--navy);box-shadow:0 10px 30px rgba(6,42,87,.12);">
+            <img src="assets/img/icon.png" alt="" style="width:40px;height:40px;border-radius:10px;" />avec ecoleenmain
+          </div>
+          <div id="s2-l1" class="abs display" style="left:150px;top:372px;font-size:84px;color:var(--ink);">Chaque parent voit</div>
+          <div class="abs" style="left:150px;top:470px;width:900px;height:130px;overflow:hidden;">
+            <div id="s2-swap1" class="abs display mark" style="left:0;top:0;font-size:112px;color:var(--navy);">ses notes.<span class="ul s2-ul"></span></div>
+            <div id="s2-swap2" class="abs display mark" style="left:0;top:0;font-size:112px;color:var(--navy);">ses absences.<span class="ul s2-ul"></span></div>
+            <div id="s2-swap3" class="abs display mark" style="left:0;top:0;font-size:112px;color:var(--navy);">sa scolarité.<span class="ul s2-ul"></span></div>
+          </div>
+          <div id="s2-l3" class="abs" style="left:152px;top:640px;font:600 40px 'Jakarta';color:var(--muted);">directement sur son téléphone.</div>
+
+          <div id="s2-phone" class="phone" style="left:1250px;top:90px;">
+            <div class="screen">
+              <div class="notch"></div>
+              <img id="s2-shot" src="assets/img/parent-phone.png" alt="" />
+              <div id="s2-ring" class="hl-ring" style="left:16px;top:308px;width:370px;height:146px;"></div>
+              <div id="s2-ring2" class="hl-ring" style="left:16px;top:462px;width:370px;height:386px;"></div>
+            </div>
+          </div>
+          <div id="s2-n1" class="notif" style="left:1080px;top:40px;">
+            <img src="assets/img/icon.png" alt="" />
+            <div><div class="app"><span>ecoleenmain</span><span>maintenant</span></div>
+              <div class="t">Nouvelle note · Mathématiques</div>
+              <div class="d">Boris — Interrogation 3 : <b style="color:var(--green)">13/20</b></div></div>
+          </div>
+          <div id="s2-n2" class="notif" style="left:1080px;top:40px;">
+            <img src="assets/img/icon.png" alt="" />
+            <div><div class="app"><span>ecoleenmain</span><span>maintenant</span></div>
+              <div class="t">Paiement de scolarité reçu</div>
+              <div class="d">100 000 F CFA · reçu REC-2026-00001</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== S3 · not a pile of notebooks ===== -->
+      <section id="s3" class="clip" data-start="9.8" data-duration="4.1" data-track-index="3">
+        <div id="s3-stage" class="stage">
+          <div id="s3-panel" class="abs" style="inset:0;background:radial-gradient(circle at 70% 40%, #12498f 0%, #0b3a75 38%, #062a57 100%);"></div>
+          <div id="s3-glow" class="abs" style="left:1080px;top:180px;width:760px;height:760px;border-radius:50%;background:rgba(253,181,21,.18);filter:blur(80px);"></div>
+          <div id="s3-stack" class="abs" style="left:1260px;top:250px;width:520px;height:600px;">
+            <div class="abs s3-book" style="left:40px;top:470px;width:440px;height:62px;border-radius:8px;background:#d9c7a3;box-shadow:inset 0 -6px 0 rgba(0,0,0,.12);"></div>
+            <div class="abs s3-book" style="left:20px;top:404px;width:470px;height:62px;border-radius:8px;background:#9fb8d9;box-shadow:inset 0 -6px 0 rgba(0,0,0,.12);"></div>
+            <div class="abs s3-book" style="left:52px;top:338px;width:430px;height:62px;border-radius:8px;background:#e8c56a;box-shadow:inset 0 -6px 0 rgba(0,0,0,.12);"></div>
+            <div class="abs s3-book" style="left:30px;top:272px;width:455px;height:62px;border-radius:8px;background:#c9b18a;box-shadow:inset 0 -6px 0 rgba(0,0,0,.12);"></div>
+            <div class="abs s3-book" style="left:60px;top:206px;width:420px;height:62px;border-radius:8px;background:#a7c2a0;box-shadow:inset 0 -6px 0 rgba(0,0,0,.12);"></div>
+            <div class="abs s3-book" style="left:36px;top:140px;width:450px;height:62px;border-radius:8px;background:#e0d4bd;box-shadow:inset 0 -6px 0 rgba(0,0,0,.12);"></div>
+          </div>
+          <div id="s3-a" class="abs" style="left:150px;top:300px;font:700 46px 'Jakarta';color:rgba(255,255,255,.72);">Et vous,</div>
+          <div id="s3-b" class="abs display" style="left:150px;top:370px;font-size:104px;color:#fff;">vous dirigez une école…</div>
+          <div id="s3-c" class="abs display" style="left:150px;top:510px;font-size:104px;color:var(--yellow);">
+            pas une pile de cahiers.
+            <div id="s3-strike" class="abs" style="left:0;right:0;top:56px;height:12px;border-radius:6px;background:#fff;transform-origin:left center;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== S4 · single entry by the teacher ===== -->
+      <section id="s4" class="clip" data-start="13.6" data-duration="5.6" data-track-index="4">
+        <div id="s4-stage" class="stage">
+          <div id="s4-eyebrow" class="abs pill" style="left:150px;top:250px;padding:10px 20px;background:rgba(11,58,117,.08);color:var(--navy);font-size:24px;">Côté enseignant</div>
+          <div id="s4-h1" class="abs display" style="left:150px;top:320px;font-size:104px;color:var(--ink);width:700px;">Une seule <span class="mark">saisie.<span id="s4-ul" class="ul"></span></span></div>
+          <div id="s4-sub" class="abs" style="left:152px;top:560px;width:560px;font:600 36px/1.35 'Jakarta';color:var(--muted);">L'enseignant entre ses notes, elles sont validées.</div>
+          <div id="s4-done" class="abs display" style="left:150px;top:700px;font-size:84px;color:var(--navy);">C'est tout.</div>
+
+          <div id="s4-card-wrap" class="abs" style="left:800px;top:170px;width:1040px;height:650px;perspective:2200px;">
+            <div id="s4-card" class="abs card-shadow" style="inset:0;border-radius:22px;overflow:hidden;background:#fff;border:2px solid rgba(253,181,21,.0);">
+              <img src="assets/img/teacher-entry.png" alt="" style="position:absolute;left:0;top:0;width:1040px;" />
+              <div id="s4-cover" class="abs" style="left:166px;top:240px;width:850px;height:78px;background:#fff;"></div>
+              <div id="s4-valid" class="abs pill" style="left:176px;top:250px;width:800px;height:56px;padding:0 22px;background:#e6f5ec;border:2px solid #9fd8b6;color:var(--green);font-size:20px;border-radius:14px;">
+                ✓ Notes validées — elles partent directement dans les bulletins.
+              </div>
+              <div id="s4-ring" class="hl-ring" style="left:922px;top:395px;width:84px;height:162px;border-radius:16px;"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== S5 · documents ready, no retyping ===== -->
+      <section id="s5" class="clip" data-start="18.8" data-duration="7.3" data-track-index="5">
+        <div id="s5-stage" class="stage">
+          <div id="s5-cam" class="abs" style="inset:0;transform-origin:50% 50%;">
+            <div id="s5-h1" class="abs display" style="left:150px;top:120px;font-size:90px;color:var(--ink);">Plus rien à
+              <span class="mark" style="color:var(--muted);">recopier<span id="s5-strike" class="abs" style="left:-6px;right:-6px;top:50px;height:10px;border-radius:5px;background:var(--red);transform-origin:left center;"></span></span>
+            </div>
+            <div id="s5-sub" class="abs" style="left:152px;top:232px;font:600 38px 'Jakarta';color:var(--muted);">au secrétariat.</div>
+
+            <div id="s5-d1" class="doc" style="left:640px;top:330px;width:460px;height:650px;"><img src="assets/img/doc-bulletin.png" alt="" /></div>
+            <div id="s5-d2" class="doc" style="left:1130px;top:420px;width:620px;height:438px;"><img src="assets/img/doc-honneur.png" alt="" /></div>
+            <div id="s5-d3" class="doc" style="left:170px;top:380px;width:420px;height:596px;"><img src="assets/img/doc-certificat.png" alt="" /></div>
+            <div id="s5-c1" class="chip" style="left:740px;top:300px;">Bulletins</div>
+            <div id="s5-c2" class="chip" style="left:1300px;top:390px;">Tableaux d'honneur</div>
+            <div id="s5-c3" class="chip" style="left:270px;top:350px;">Certificats</div>
+
+            <div id="s5-btn" class="abs pill" style="left:1240px;top:150px;padding:22px 34px;background:var(--yellow);color:var(--ink);font-size:30px;box-shadow:0 18px 40px rgba(253,181,21,.45);">⬇ Télécharger les bulletins (PDF)</div>
+            <svg id="s5-cursor" class="cursor" viewBox="0 0 24 24" style="left:1720px;top:640px;"><path d="M3 2l7.5 19 2.6-7.4L20.5 11z" fill="#14223a" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </div>
+          <div id="s5-flash" class="abs" style="inset:0;background:#fff;opacity:0;"></div>
+        </div>
+      </section>
+
+      <!-- ===== S6 · receipts and unpaid fees ===== -->
+      <section id="s6" class="clip" data-start="25.7" data-duration="5.1" data-track-index="6">
+        <div id="s6-stage" class="stage">
+          <div id="s6-h1" class="abs display" style="left:150px;top:300px;font-size:92px;color:var(--ink);">Chaque versement,</div>
+          <div id="s6-h2" class="abs display" style="left:150px;top:410px;font-size:92px;color:var(--navy);">son reçu <span class="mark">numéroté.<span id="s6-ul" class="ul"></span></span></div>
+          <div id="s6-receipt" class="abs card-shadow" style="left:1180px;top:110px;width:500px;height:865px;border-radius:22px;overflow:hidden;background:#fff;">
+            <img src="assets/img/receipt.png" alt="" style="width:500px;" />
+            <div id="s6-ring" class="hl-ring" style="left:16px;top:212px;width:190px;height:56px;border-radius:12px;"></div>
+          </div>
+          <div id="s6-stat" class="abs card-shadow" style="left:150px;top:560px;width:760px;padding:34px 40px;border-radius:28px;background:#fff;">
+            <div style="display:flex;align-items:center;gap:14px;font:700 26px 'Jakarta';color:var(--muted);">
+              <span id="s6-dot" style="width:16px;height:16px;border-radius:50%;background:var(--red);display:inline-block;"></span>Impayés · en temps réel
+            </div>
+            <div class="display" style="font-size:96px;color:var(--ink);margin-top:10px;"><span id="s6-num">0</span> <span style="font-size:52px;color:var(--muted);">F CFA</span></div>
+            <div style="margin-top:16px;display:grid;grid-template-columns:1fr auto;row-gap:10px;font:600 24px 'Jakarta';">
+              <span class="s6-row">GODO Joseph · TLE AB</span><span class="s6-row" style="color:var(--red)">260 000 F</span>
+              <span class="s6-row">KPAKPATOU Jeannette · TLE AB</span><span class="s6-row" style="color:var(--red)">260 000 F</span>
+              <span class="s6-row">FASSINOU Boris · TLE AB</span><span class="s6-row" style="color:var(--red)">160 000 F</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== S7 · power cut, school continues ===== -->
+      <section id="s7" class="clip" data-start="30.4" data-duration="4.0" data-track-index="7">
+        <div id="s7-stage" class="stage">
+          <div id="s7-h1" class="abs display" style="left:150px;top:350px;font-size:96px;color:var(--ink);">Même pendant</div>
+          <div id="s7-h2" class="abs display" style="left:150px;top:460px;font-size:96px;color:var(--ink);">un délestage,</div>
+          <div id="s7-h3" class="abs display" style="left:150px;top:590px;font-size:96px;color:var(--navy);"><span class="mark">votre école continue.<span id="s7-ul" class="ul"></span></span></div>
+          <div id="s7-phone" class="phone" style="left:1300px;top:90px;">
+            <div class="screen">
+              <div class="notch"></div>
+              <img src="assets/img/offline-phone.png" alt="" />
+              <div id="s7-pill" class="abs pill" style="left:30px;top:240px;height:34px;padding:0 16px;background:var(--green);color:#fff;font-size:17px;">
+                <span id="s7-pill-txt">● Connecté</span>
+              </div>
+            </div>
+          </div>
+          <div id="s7-cut" class="abs" style="inset:0;background:#05080f;opacity:0;"></div>
+        </div>
+      </section>
+
+      <!-- ===== S8 · end card ===== -->
+      <section id="s8" class="clip" data-start="34.0" data-duration="11" data-track-index="8">
+        <div id="s8-stage" class="stage">
+          <div id="s8-wash" class="abs" style="inset:0;background:var(--canvas);"></div>
+          <div id="s8-halo" class="abs" style="left:660px;top:40px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle, rgba(253,181,21,.55), rgba(253,181,21,0) 65%);"></div>
+          <img id="s8-icon" class="abs" src="assets/img/icon.png" alt="" style="left:840px;top:220px;width:240px;height:240px;border-radius:56px;box-shadow:0 30px 80px rgba(6,42,87,.3);" />
+          <img id="s8-logo" class="abs" src="assets/img/logo.png" alt="ecoleenmain" style="left:560px;top:250px;width:800px;" />
+          <div id="s8-tag" class="abs display" style="left:0;right:0;top:500px;text-align:center;font-size:84px;color:var(--ink);">Toute votre école, <span class="mark" style="color:var(--navy);">dans votre main.<span id="s8-ul" class="ul"></span></span></div>
+          <div id="s8-cta" class="abs pill" style="left:715px;top:660px;width:490px;justify-content:center;padding:26px 0;background:var(--yellow);color:var(--ink);font-size:36px;box-shadow:0 20px 50px rgba(253,181,21,.45);">Essai gratuit · 14 jours</div>
+          <div id="s8-small" class="abs" style="left:0;right:0;top:770px;text-align:center;font:600 24px 'Jakarta';color:var(--muted);">Sans carte bancaire</div>
+          <div id="s8-url" class="abs display" style="left:0;right:0;top:850px;text-align:center;font-size:52px;color:var(--navy);">ecoleenmain.com</div>
+          <div id="s8-out" class="abs" style="inset:0;background:var(--canvas);opacity:0;"></div>
+        </div>
+      </section>
+
+      <!-- ===== audio ===== -->
+      <audio id="vo" src="assets/vo/voiceover.wav" data-start="0" data-duration="45" data-track-index="9" data-volume="1"></audio>
+      <audio id="bgm" src="assets/music/music-ducked.wav" data-start="0" data-duration="45" data-track-index="10" data-volume="0.75"></audio>
     </div>
+
     <script>
+      // One paused timeline at global (film) time. Every reveal is placed on the
+      // voiceover's word timings (assets/vo/timings.json) or the music's beat grid.
       const tl = gsap.timeline({ paused: true });
-      // Example: tl.fromTo("#title", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6 }, 0);
+      const E = "expo.out", P = "power3.out", IO = "power2.inOut";
+      const pop = (sel, t, from = {}) =>
+        tl.fromTo(sel, { y: 60, opacity: 0, filter: "blur(10px)", ...from }, { y: 0, x: 0, opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.7, ease: E }, t);
+      const sweep = (sel, t, d = 0.45) => tl.fromTo(sel, { scaleX: 0 }, { scaleX: 1, duration: d, ease: P }, t);
+
+      // ---- background drift (whole film)
+      tl.fromTo("#blob-a", { x: 0, y: 0 }, { x: 260, y: 140, duration: 45, ease: "sine.inOut" }, 0);
+      tl.fromTo("#blob-b", { x: 0, y: 0 }, { x: -220, y: -120, duration: 45, ease: "sine.inOut" }, 0);
+
+      // ---- S1 hook (words on the voice)
+      pop("#s1-w1", 0.42); pop("#s1-w2", 0.8); pop("#s1-w3", 1.06);
+      pop("#s1-w4", 1.8, { y: 0, scale: 0.86 });
+      sweep("#s1-ul", 2.0, 0.5);
+      tl.to("#s1-stage", { y: -140, opacity: 0, filter: "blur(14px)", duration: 0.5, ease: "power3.in" }, 2.85);
+
+      // ---- S2 parent phone
+      tl.fromTo("#s2-phone", { y: 760, rotation: 8, scale: 0.92 }, { y: 0, rotation: 0, scale: 1, duration: 1.1, ease: E }, 3.05);
+      pop("#s2-brand", 3.25, { x: -40, y: 0 });
+      pop("#s2-l1", 4.45);
+      gsap.set(["#s2-swap2", "#s2-swap3"], { yPercent: 110 });
+      tl.fromTo("#s2-swap1", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: E }, 5.1);
+      tl.to("#s2-swap1", { yPercent: -110, duration: 0.45, ease: "power3.in" }, 5.6);
+      tl.fromTo("#s2-swap2", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: E }, 5.72);
+      tl.to("#s2-swap2", { yPercent: -110, duration: 0.45, ease: "power3.in" }, 6.2);
+      tl.fromTo("#s2-swap3", { yPercent: 110 }, { yPercent: 0, duration: 0.55, ease: E }, 6.32);
+      tl.fromTo(".s2-ul", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: P }, 6.6);
+      pop("#s2-l3", 7.7, { y: 30 });
+      // scroll the real parent screen with the words it names
+      tl.fromTo("#s2-shot", { y: 0 }, { y: -330, duration: 0.5, ease: IO }, 5.0);
+      tl.to("#s2-shot", { y: -763, duration: 0.42, ease: IO }, 5.55);
+      tl.fromTo("#s2-ring", { opacity: 0, scale: 1.08 }, { opacity: 1, scale: 1, duration: 0.3, ease: P }, 5.98);
+      tl.to("#s2-ring", { opacity: 0, duration: 0.2 }, 6.35);
+      tl.fromTo("#s2-ring2", { opacity: 0, scale: 1.06 }, { opacity: 1, scale: 1, duration: 0.3, ease: P }, 6.38);
+      tl.to("#s2-ring2", { opacity: 0, duration: 0.3 }, 7.6);
+      // notifications
+      tl.fromTo("#s2-n1", { y: -160, opacity: 0, scale: 0.92 }, { y: 0, opacity: 1, scale: 1, duration: 0.6, ease: E }, 4.5);
+      tl.to("#s2-n1", { y: -160, opacity: 0, duration: 0.4, ease: "power3.in" }, 6.05);
+      tl.fromTo("#s2-n2", { y: -160, opacity: 0, scale: 0.92 }, { y: 0, opacity: 1, scale: 1, duration: 0.6, ease: E }, 6.45);
+      tl.to("#s2-phone", { scale: 1.06, duration: 1.6, ease: "sine.inOut" }, 7.7);
+      tl.to("#s2-stage", { x: -260, opacity: 0, duration: 0.5, ease: "power3.in" }, 9.85);
+
+      // ---- S3 navy contrast beat
+      tl.fromTo("#s3-panel", { clipPath: "circle(0% at 80% 50%)" }, { clipPath: "circle(150% at 80% 50%)", duration: 0.75, ease: "power3.inOut" }, 9.8);
+      tl.fromTo("#s3-glow", { opacity: 0 }, { opacity: 1, duration: 1 }, 10.2);
+      pop("#s3-a", 10.08, { y: 30 });
+      pop("#s3-b", 10.78);
+      pop("#s3-c", 12.05);
+      tl.fromTo(".s3-book", { y: -700, rotation: (i) => (i % 2 ? 6 : -5), opacity: 0 }, { y: 0, rotation: (i) => (i % 2 ? 1.5 : -1.5), opacity: 1, duration: 0.55, ease: "bounce.out", stagger: 0.07 }, 11.3);
+      sweep("#s3-strike", 12.85, 0.35);
+      tl.to(".s3-book", { x: 1100, rotation: 25, opacity: 0, duration: 0.6, ease: "power3.in", stagger: 0.04 }, 12.95);
+      tl.to("#s3-stage", { yPercent: -100, duration: 0.6, ease: "power3.inOut" }, 13.6);
+
+      // ---- S4 teacher single entry
+      pop("#s4-eyebrow", 13.95, { y: 20 });
+      pop("#s4-h1", 14.15);
+      sweep("#s4-ul", 14.6, 0.4);
+      tl.fromTo("#s4-card", { rotationY: -26, rotationX: 8, x: 220, opacity: 0, transformPerspective: 2200 }, { rotationY: -12, rotationX: 4, x: 0, opacity: 1, duration: 1.0, ease: E }, 13.9);
+      pop("#s4-sub", 15.35, { y: 30 });
+      tl.to("#s4-card", { rotationY: 0, rotationX: 0, scale: 1.04, duration: 1.0, ease: IO }, 15.4);
+      tl.fromTo("#s4-ring", { opacity: 0, scale: 1.3 }, { opacity: 1, scale: 1, duration: 0.35, ease: P }, 15.8);
+      tl.to("#s4-ring", { opacity: 0, duration: 0.3 }, 16.75);
+      tl.fromTo("#s4-valid", { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(2.2)" }, 16.85);
+      tl.to("#s4-card", { borderColor: "rgba(31,138,76,.65)", duration: 0.3 }, 16.85);
+      pop("#s4-done", 17.7, { y: 0, scale: 0.8 });
+      tl.to("#s4-stage", { x: -320, opacity: 0, duration: 0.5, ease: "power3.in" }, 18.75);
+
+      // ---- S5 documents
+      pop("#s5-h1", 19.05);
+      sweep("#s5-strike", 19.7, 0.35);
+      pop("#s5-sub", 19.95, { y: 24 });
+      tl.fromTo("#s5-d1", { y: 900, rotation: 10, opacity: 0 }, { y: 0, rotation: -3, opacity: 1, duration: 0.8, ease: E }, 20.95);
+      pop("#s5-c1", 21.15, { y: 20 });
+      tl.fromTo("#s5-d2", { x: 900, rotation: 14, opacity: 0 }, { x: 0, rotation: 4, opacity: 1, duration: 0.8, ease: E }, 21.65);
+      pop("#s5-c2", 21.85, { y: 20 });
+      tl.fromTo("#s5-d3", { x: -900, rotation: -14, opacity: 0 }, { x: 0, rotation: -5, opacity: 1, duration: 0.8, ease: E }, 22.55);
+      pop("#s5-c3", 22.75, { y: 20 });
+      pop("#s5-btn", 23.4, { y: -30 });
+      tl.fromTo("#s5-cursor", { x: 0, y: 0, opacity: 0 }, { x: -230, y: -440, opacity: 1, duration: 0.55, ease: IO }, 23.4);
+      tl.to("#s5-btn", { scale: 0.94, duration: 0.08, yoyo: true, repeat: 1 }, 23.98);
+      tl.to("#s5-cursor", { scale: 0.85, duration: 0.08, yoyo: true, repeat: 1 }, 23.98);
+      tl.fromTo("#s5-flash", { opacity: 0 }, { opacity: 0.55, duration: 0.08, yoyo: true, repeat: 1 }, 24.05);
+      tl.to(["#s5-d1", "#s5-d2", "#s5-d3"], { rotation: 0, duration: 0.5, ease: P }, 24.1);
+      // push in on the school's logo at the top-right of the real bulletin
+      tl.to("#s5-cam", { scale: 2.4, x: -204, y: 396, duration: 1.0, ease: IO }, 24.5);
+      tl.to("#s5-stage", { opacity: 0, duration: 0.4 }, 25.7);
+
+      // ---- S6 receipt + unpaid
+      pop("#s6-h1", 26.05);
+      pop("#s6-h2", 26.4);
+      tl.fromTo("#s6-receipt", { y: 700, rotation: 6 }, { y: 0, rotation: 2, duration: 0.9, ease: E }, 25.9);
+      sweep("#s6-ul", 27.3, 0.4);
+      tl.fromTo("#s6-ring", { opacity: 0, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.35, ease: P }, 27.3);
+      tl.to(["#s6-h1", "#s6-h2"], { y: -200, duration: 0.6, ease: IO }, 28.1);
+      tl.fromTo("#s6-stat", { y: 300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: E }, 28.3);
+      const due = { v: 0 }, numEl = document.querySelector("#s6-num");
+      const fmt = (n) => String(Math.round(n / 1000) * 1000).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+      tl.fromTo(due, { v: 0 }, { v: 680000, duration: 1.1, ease: "power2.out", onUpdate: () => { numEl.textContent = fmt(due.v); } }, 28.7);
+      tl.fromTo(".s6-row", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.35, stagger: 0.05, ease: P }, 28.85);
+      tl.fromTo("#s6-dot", { scale: 1, opacity: 1 }, { scale: 1.6, opacity: 0.35, duration: 0.49, repeat: 3, yoyo: true, ease: "sine.inOut" }, 28.8);
+      tl.to("#s6-stage", { y: -120, opacity: 0, duration: 0.45, ease: "power3.in" }, 30.4);
+
+      // ---- S7 power cut
+      pop("#s7-h1", 30.75); pop("#s7-h2", 31.25);
+      tl.fromTo("#s7-phone", { y: 760, rotation: -6 }, { y: 0, rotation: 0, duration: 0.9, ease: E }, 30.55);
+      tl.fromTo("#s7-cut", { opacity: 0 }, { keyframes: [{ opacity: 0.75, duration: 0.06 }, { opacity: 0.15, duration: 0.07 }, { opacity: 0.7, duration: 0.06 }, { opacity: 0.0, duration: 0.25 }] }, 31.35);
+      tl.set("#s7-pill", { backgroundColor: "#b14d0b" }, 31.45);
+      tl.set("#s7-pill-txt", { textContent: "● Hors connexion · 3 saisies en attente" }, 31.45);
+      tl.fromTo("#s7-pill", { scale: 0.8 }, { scale: 1, duration: 0.4, ease: "back.out(2)" }, 31.45);
+      pop("#s7-h3", 32.35);
+      sweep("#s7-ul", 32.85, 0.45);
+      tl.set("#s7-pill", { backgroundColor: "#1f8a4c" }, 32.9);
+      tl.set("#s7-pill-txt", { textContent: "✓ 3 saisies envoyées" }, 32.9);
+      tl.fromTo("#s7-pill", { scale: 0.8 }, { scale: 1, duration: 0.4, ease: "back.out(2)" }, 32.9);
+      tl.to("#s7-stage", { opacity: 0, scale: 0.96, duration: 0.45, ease: "power3.in" }, 33.95);
+
+      // ---- S8 end card
+      tl.fromTo("#s8-wash", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 34.0);
+      tl.fromTo("#s8-halo", { scale: 0.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.0, ease: E }, 34.35);
+      tl.fromTo("#s8-icon", { scale: 0.4, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: 0, duration: 0.45, ease: "back.out(1.8)" }, 34.38);
+      tl.to("#s8-icon", { scale: 0.5, opacity: 0, duration: 0.3, ease: "power3.in" }, 34.85);
+      tl.fromTo("#s8-logo", { scale: 0.85, opacity: 0, filter: "blur(12px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.7, ease: E }, 34.9);
+      pop("#s8-tag", 35.45);
+      sweep("#s8-ul", 36.6, 0.5);
+      tl.fromTo("#s8-cta", { y: 40, opacity: 0, scale: 0.9 }, { y: 0, opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.8)" }, 37.5);
+      pop("#s8-small", 37.9, { y: 16 });
+      pop("#s8-url", 39.15, { y: 24 });
+      tl.to("#s8-cta", { scale: 1.04, duration: 0.49, yoyo: true, repeat: 5, ease: "sine.inOut" }, 40.4);
+      tl.fromTo("#s8-out", { opacity: 0 }, { opacity: 1, duration: 0.8, ease: "power2.in" }, 44.2);
+
       window.__timelines["main"] = tl;
-      tl.seek(0);
     </script>
   </body>
 </html>
