@@ -1369,5 +1369,16 @@
         "attribution": "unversioned"
       }
     ]
-  }
+  },
+  "renders": {
+    "latest": {
+      "id": "b7e97479-1669-470c-b454-362a5fc129fb",
+      "completedAt": 1792093785449,
+      "output": "/home/user/hyperframes/videos/ecoleenmain-promo/renders/ecoleenmain-pub-45s.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
 }
