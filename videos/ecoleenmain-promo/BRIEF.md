@@ -47,3 +47,11 @@ Voix off féminine française, posée comme une voix publicitaire. Le script val
 - La démo ne contient que 3 élèves : privilégier les documents et les écrans les plus parlants, éviter de montrer des totaux minuscules.
 - Références motion de l'utilisateur sur x.com non consultables (réseau bloqué) : style choisi par Claude.
 - Pas de capture automatique du site (`hyperframes capture`) : les captures authentifiées existent déjà dans ../../captures.
+
+## Références motion (analysées le 15/10/2026)
+
+- references/sheet-cleeeeeeeeement.jpg — Rerun : fond sombre + halo violet, gros mots qui glissent avec flou de mouvement, barre de recherche tapée, UI en 3D inclinée à bord lumineux.
+- references/sheet-leonabboud.jpg — reel motion : aplats de couleur, typo épaisse mot par mot, compteurs (+312 %), carte UI cliquée au curseur, repères HUD.
+- references/sheet-samuel_yostt.jpg — ViralGrow : pub SaaS claire, mot qui change dans la phrase, texte à gauche / téléphones à droite, éventail de téléphones, mosaïque inclinée, logo + bouton CTA.
+- 4e référence (ultimaxbt) : post supprimé par son auteur.
+- Direction retenue (proposée) : structure ViralGrow + effets Rerun/leonabboud, couleurs ecoleenmain ; un plan toutes les 1–1,5 s.
